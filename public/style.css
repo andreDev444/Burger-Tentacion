@@ -1,0 +1,189 @@
+/* Variables globales y paleta de colores */
+:root {
+    --primary-red: #D12429;
+    --dark-bg: #0A0A0A;
+    --text-white: #FFFFFF;
+    --text-gray: #B0B0B0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-white);
+    overflow-x: hidden;
+}
+
+/* Navbar / Encabezado */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 6%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: transparent;
+}
+
+/* Clase especial solo para el fondo en páginas secundarias */
+.navbar-fondo {
+    background-image: url('../multimedia/tabla.jpg'); /* Prueba con los dos puntos si tu CSS está en una subcarpeta */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: var(--text-white);
+}
+
+/* Estilos para el logo circular */
+.logo img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%; /* Recorta la imagen en círculo */
+    border: 2px ;
+    margin-right: 15px;
+    box-shadow: 0 0 10px rgba(101, 100, 100, 0.4);
+}
+
+.navbar nav ul {
+    display: flex;
+    list-style: none;
+    gap: 3rem;
+}
+
+.navbar nav ul li a {
+    color: var(--text-white);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.navbar nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-red);
+    transition: width 0.3s ease;
+}
+
+.navbar nav ul li a:hover {
+    color: var(--primary-red);
+}
+
+.navbar nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Creación de la barra vertical roja */
+.navbar nav ul .nav-bar {
+    width: 1.5px;
+    height: 24px;
+    background-color: var(--primary-red);
+    display: inline-block;
+}
+
+/* Sección Hero */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 8%;
+}
+
+.bg-video {
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit:unset;
+    z-index: -1;
+    filter: brightness(0.65);
+}
+
+.hero-content {
+    max-width: 650px;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 4.2rem;
+    font-weight: 1000;
+    line-height: 1.03;
+    text-transform: uppercase;
+    color: var(--text-white);
+    letter-spacing: -1px;
+    margin-bottom: 2.5rem;
+}
+
+.hero h1 .highlight {
+     font-size: 4.0 rem;
+    color: var(--primary-red);
+    display: block;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1.8rem;
+    align-items: center;
+}
+
+.btn {
+    padding: 1rem 2.4rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.35s ease;
+}
+
+.btn-red {
+    background-color: var(--primary-red);
+    color: var(--text-white);
+    border: 2px solid var(--primary-red);
+}
+
+.btn-red:hover {
+    background-color: #a7181c;
+    border-color: #a7181c;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--text-white);
+    border: 2px solid var(--text-white);
+}
+
+.btn-outline:hover {
+    background-color: var(--text-white);
+    color: #000;
+    transform: translateY(-2px);
+}

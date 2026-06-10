@@ -1,0 +1,388 @@
+
+/* aca lo de sedes0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000*/
+/* ========== RESET & VARIABLES ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-red: #D12429;
+    --bg-dark: #0A0A0A;
+    --text-white: #FFFFFF;
+    --text-gray: #B0B0B0;
+    --card-bg: #111111;
+    --border-light: #2A2A2A;
+    --shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.6);
+    --transition: all 0.25s ease;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: 'Segoe UI', 'Poppins', system-ui, -apple-system, 'Inter', sans-serif;
+    line-height: 1.5;
+    overflow-x: hidden;
+    padding-top: 100px;
+}
+
+/* ========== NAVBAR ========== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 6%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: transparent;
+    backdrop-filter: blur(12px);
+    background-color: rgba(10, 10, 10, 0.75);
+    border-bottom: 1px solid rgba(209, 36, 41, 0.2);
+    
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: var(--text-white);
+}
+
+.logo img {
+    width: 75px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--primary-red);
+    margin-right: 15px;
+    box-shadow: 0 0 10px rgba(101, 100, 100, 0.4);
+}
+
+.navbar nav ul {
+    display: flex;
+    list-style: none;
+    gap: 3rem;
+}
+
+.navbar nav ul li a {
+    color: var(--text-white);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.navbar nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-red);
+    transition: width 0.3s ease;
+}
+
+.navbar nav ul li a:hover {
+    color: var(--primary-red);
+}
+
+.navbar nav ul li a:hover::after {
+    width: 100%;
+}
+
+.navbar nav ul .nav-bar {
+    width: 1.5px;
+    height: 24px;
+    background-color: var(--primary-red);
+    display: inline-block;
+}
+
+@media (max-width: 850px) {
+    .navbar {
+        flex-direction: column;
+        padding: 1rem 4%;
+        gap: 0.8rem;
+    }
+    .navbar nav ul {
+        gap: 1.2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .navbar nav ul .nav-bar {
+        display: none;
+    }
+    body {
+        padding-top: 130px;
+    }
+}
+/* ========== MAIN LAYOUT (2 COLUMNAS) ========== */
+.main-layout {
+    max-width: 1400px;
+    margin: 50px auto;
+    padding: 2rem 2rem;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.stores-column {
+    flex: 1.2;
+    min-width: 300px;
+}
+
+.map-column {
+    flex: 0.9;
+    min-width: 280px;
+}
+
+.page-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.5px;
+    color: var(--text-white);
+}
+
+/* Input de ubicación */
+.location-input-wrapper {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.location-input {
+    flex: 1;
+    background: #1A1A1A;
+    border: 1px solid var(--border-light);
+    border-radius: 50px;
+    padding: 0.9rem 1.5rem;
+    color: var(--text-white);
+    font-size: 0.95rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+.location-input:focus {
+    border-color: var(--primary-red);
+    box-shadow: 0 0 0 2px rgba(209, 36, 41, 0.2);
+}
+
+.location-input::placeholder {
+    color: #6c6c6c;
+}
+
+.search-location-btn {
+    background: var(--primary-red);
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: var(--transition);
+    color: white;
+}
+
+.search-location-btn:hover {
+    transform: scale(1.05);
+    background: #b81e23;
+}
+
+/* Lista de tiendas */
+.stores-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: 450px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.store-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    border-radius: 20px;
+    padding: 1.2rem;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.store-item:hover {
+    border-color: var(--primary-red);
+    transform: translateX(4px);
+}
+
+.store-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+    color: var(--text-white);
+}
+
+.store-address {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    margin-bottom: 0.5rem;
+}
+
+.store-hours {
+    font-size: 0.8rem;
+    color: #4caf50;
+    font-weight: 500;
+    display: inline-block;
+    background: rgba(76, 175, 80, 0.15);
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+}
+
+/* Botones de acción */
+.action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.action-btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    flex: 1;
+    min-width: 130px;
+}
+
+.primary-btn {
+    background: var(--primary-red);
+    color: white;
+}
+
+.primary-btn:hover {
+    background: #b81e23;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(209, 36, 41, 0.3);
+}
+
+.secondary-btn {
+    background: transparent;
+    border: 1px solid var(--primary-red);
+    color: var(--primary-red);
+}
+
+.secondary-btn:hover {
+    background: rgba(209, 36, 41, 0.15);
+    transform: translateY(-2px);
+}
+
+.outline-btn {
+    background: transparent;
+    border: 1px solid var(--text-gray);
+    color: var(--text-gray);
+}
+
+.outline-btn:hover {
+    border-color: var(--primary-red);
+    color: var(--primary-red);
+}
+
+/* Columna del mapa */
+.map-card {
+    background: var(--card-bg);
+    border-radius: 24px;
+    border: 1px solid var(--border-light);
+    overflow: hidden;
+    padding: 1.2rem;
+}
+
+.map-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-white);
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.locations-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.location-tag {
+    background: #1E1E1E;
+    padding: 0.4rem 1rem;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    color: var(--text-gray);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.location-tag:hover {
+    background: var(--primary-red);
+    color: white;
+}
+
+.map-placeholder {
+    margin-top: 1rem;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #141414;
+}
+
+.map-svg-placeholder svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.footer {
+    text-align: center;
+    padding: 2rem;
+    color: #5a5a5a;
+    font-size: 0.8rem;
+    border-top: 1px solid #1f1f1f;
+    margin-top: 2rem;
+}
+
+@media (max-width: 800px) {
+    .main-layout {
+        flex-direction: column;
+    }
+    .stores-list {
+        max-height: 350px;
+    }
+}
+
+/* Scroll personalizado */
+.stores-list::-webkit-scrollbar,
+.locations-list::-webkit-scrollbar {
+    width: 5px;
+}
+
+.stores-list::-webkit-scrollbar-track,
+.locations-list::-webkit-scrollbar-track {
+    background: #1A1A1A;
+    border-radius: 10px;
+}
+
+.stores-list::-webkit-scrollbar-thumb,
+.locations-list::-webkit-scrollbar-thumb {
+    background: var(--primary-red);
+    border-radius: 10px;
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ordena Now!!</title>
+
+    <link rel="icon" type="image/png" href="multimedia/BURGER.png">
+    <link rel="stylesheet" href="style_pedidos.css">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar navbar-fondo">
+
+        <div class="logo">
+            <a href="index.html">
+                <img src="multimedia/BURGER.png" alt="Logo">
+            </a>
+        </div>
+
+        <nav>
+
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <span class="nav-bar"></span>
+
+                <li><a href="sedes.html">Sedes</a></li>
+                <span class="nav-bar"></span>
+
+                <li><a href="sobreNosotros.html">Sobre Nosotros</a></li>
+                <span class="nav-bar"></span>
+
+                <li><a href="pqrsd.html">Pqrsd</a></li>
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <div class="container">
+        <section class="catalogo">
+            <h2>Nuestras Hamburguesas</h2>
+            <div id="hamburguesas" class="grid"></div>
+            
+            <h2>Para Acompañar</h2>
+            <div id="acompanantes" class="grid"></div>
+        </section>
+
+        <aside class="panel-pedido">
+            <h3>Tu Pedido</h3>
+        
+            <form id="formPedido">
+                <div id="lista-carrito">
+                    <p>No hay productos seleccionados</p>
+                </div>
+
+                <div class="personalizacion">
+                    <h4>Preferencias</h4>
+                    <label><input type="checkbox" name="pref" value="Sin cebolla"> Sin cebolla</label>
+                    <label><input type="checkbox" name="pref" value="Sin pepinillos"> Sin pepinillos</label>
+                    <label><input type="checkbox" name="pref" value="Sin salsa"> Sin salsa</label>
+
+                    <h4>Adiciones (Aumenta el total)</h4>
+                    <label><input type="checkbox" class="adicion" data-precio="2000" value="Queso"> Queso (+$2.000)</label>
+                    <label><input type="checkbox" class="adicion" data-precio="3000" value="Tocineta"> Tocineta (+$3.000)</label>
+                    <label><input type="checkbox" class="adicion" data-precio="5000" value="Carne Extra"> Carne Extra (+$5.000)</label>
+                </div>
+
+                <hr>
+                <div class="total-area">
+                    <strong>Total: $</strong><span id="total-final">0</span>
+                </div>
+                
+                <h4>Datos del Cliente</h4>
+                <input type="text" id="nombre_cliente" placeholder="Nombre completo" required>
+                <input type="text" id="telefono" placeholder="Teléfono" required>
+                <textarea id="direccion" placeholder="Dirección de entrega" required></textarea>
+
+                <select id="metodo_pago">
+                    <option value="" disabled selected>Método de pago contra entrega</option>
+                    <option value="Efectivo">Efectivo</option>
+                    <option value="Digital">Transferencia Digital</option>
+                </select>
+
+                <button type="submit" class="btnConfirmar">CONFIRMAR PEDIDO</button>
+            </form>
+        </aside>
+    </div>
+
+    <script src="script_pedidos.js"></script>
+</body>
+</html>

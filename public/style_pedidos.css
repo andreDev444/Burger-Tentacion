@@ -1,0 +1,524 @@
+/* ========== VARIABLES DE COLOR - PALETA UNIFICADA ========== */
+:root {
+    --primary-red: #D12429;
+    --dark-bg: #0A0A0A;
+    --text-white: #FFFFFF;
+    --text-gray: #B0B0B0;
+    --navbar-height: 85px;
+    --card-bg: #161616;
+    --border-color: #2A2A2A;
+    --red-hover: #A01B1F;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Arial, 'Segoe UI', Roboto, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-white);
+    overflow-x: hidden;
+    padding-top: var(--navbar-height);
+}
+
+/* ========== NAVBAR ESTÁTICA ========== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 6%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(209, 36, 41, 0.3);
+    height: var(--navbar-height);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--text-white);
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--primary-red);
+    margin-right: 15px;
+    box-shadow: 0 0 10px rgba(209, 36, 41, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+.navbar nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.navbar nav ul li a {
+    color: var(--text-white);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.navbar nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-red);
+    transition: width 0.3s ease;
+}
+
+.navbar nav ul li a:hover {
+    color: var(--primary-red);
+}
+
+.navbar nav ul li a:hover::after {
+    width: 100%;
+}
+
+.navbar nav ul .nav-bar {
+    width: 1.5px;
+    height: 24px;
+    background-color: var(--primary-red);
+    display: inline-block;
+}
+
+/* ========== RESPONSIVE NAVBAR ========== */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.8rem 4%;
+        height: 75px;
+    }
+    
+    .logo img {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .navbar nav ul {
+        gap: 1rem;
+    }
+    
+    .navbar nav ul li a {
+        font-size: 0.8rem;
+    }
+    
+    .navbar nav ul .nav-bar {
+        height: 18px;
+    }
+    
+    body {
+        padding-top: 75px;
+    }
+}
+
+@media (max-width: 580px) {
+    .navbar {
+        overflow-x: auto;
+        white-space: nowrap;
+        gap: 15px;
+    }
+    
+    .navbar::-webkit-scrollbar {
+        height: 3px;
+    }
+    
+    .navbar::-webkit-scrollbar-track {
+        background: var(--dark-bg);
+    }
+    
+    .navbar::-webkit-scrollbar-thumb {
+        background: var(--primary-red);
+        border-radius: 10px;
+    }
+}
+
+/* ========== CONTENEDOR PRINCIPAL ========== */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 30px;
+    padding: 40px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ========== CATÁLOGO ========== */
+.catalogo h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    border-left: 5px solid var(--primary-red);
+    padding-left: 15px;
+    color: var(--text-white);
+    font-weight: 700;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+/* ========== TARJETAS DE PRODUCTO ========== */
+.card {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: var(--primary-red);
+    box-shadow: 0 12px 24px rgba(209, 36, 41, 0.15);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover img {
+    transform: scale(1.02);
+}
+
+.card h4 {
+    padding: 18px 18px 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-white);
+}
+
+.card p {
+    padding: 0 18px 18px;
+    color: var(--primary-red);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.btn-add {
+    background-color: var(--primary-red);
+    color: var(--text-white);
+    border: none;
+    padding: 14px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: auto;
+}
+
+.btn-add:hover {
+    background-color: var(--red-hover);
+    transform: scale(1.02);
+}
+
+/* ========== PANEL DE PEDIDO ========== */
+.panel-pedido {
+    background-color: var(--card-bg);
+    padding: 28px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    height: fit-content;
+    position: sticky;
+    top: calc(var(--navbar-height) + 20px);
+    transition: all 0.3s ease;
+}
+
+.panel-pedido:hover {
+    border-color: rgba(209, 36, 41, 0.5);
+}
+
+.panel-pedido h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+    color: var(--primary-red);
+    font-weight: 700;
+}
+
+.panel-pedido h4 {
+    color: var(--text-white);
+    margin: 15px 0 10px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+#lista-carrito {
+    max-height: 220px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    background: #1A1A1A;
+    padding: 12px;
+    border-radius: 12px;
+}
+
+#lista-carrito p {
+    color: var(--text-gray);
+    text-align: center;
+    padding: 20px;
+}
+
+.item-carrito {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.9rem;
+}
+
+.item-carrito span:first-child {
+    color: var(--text-white);
+}
+
+.item-carrito span:last-child {
+    color: var(--primary-red);
+    font-weight: 600;
+}
+
+/* ========== PERSONALIZACIÓN - CHECKBOXES ALINEADOS ========== */
+.personalizacion {
+    margin: 15px 0;
+}
+
+.personalizacion h4 {
+    color: var(--text-white);
+    margin: 15px 0 12px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.personalizacion label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    cursor: pointer;
+    color: var(--text-gray);
+    transition: color 0.2s ease;
+    padding: 4px 0;
+}
+
+.personalizacion label:hover {
+    color: var(--text-white);
+}
+
+.personalizacion input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    accent-color: var(--primary-red);
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+
+/* Grupo de checkboxes con grid para mejor alineación */
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* ========== TOTAL ========== */
+hr {
+    border-color: var(--border-color);
+    margin: 15px 0;
+}
+
+.total-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.4rem;
+    margin: 20px 0;
+    padding: 10px 0;
+    color: var(--text-white);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+#total-final {
+    color: var(--primary-red);
+    font-weight: 800;
+    font-size: 1.6rem;
+}
+
+/* ========== FORMULARIO CLIENTE ========== */
+#formPedido input, 
+#formPedido textarea, 
+#formPedido select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    background-color: #1A1A1A;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    color: var(--text-white);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+#formPedido input:focus, 
+#formPedido textarea:focus,
+#formPedido select:focus {
+    outline: none;
+    border-color: var(--primary-red);
+    box-shadow: 0 0 0 2px rgba(209, 36, 41, 0.2);
+}
+
+#formPedido input::placeholder,
+#formPedido textarea::placeholder {
+    color: var(--text-gray);
+}
+
+/* ========== BOTÓN CONFIRMAR ========== */
+.btnConfirmar {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary-red);
+    color: var(--text-white);
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(209, 36, 41, 0.3);
+}
+
+.btnConfirmar:hover {
+    background-color: var(--red-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(209, 36, 41, 0.4);
+}
+
+.btnConfirmar:active {
+    transform: translateY(0);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 992px) {
+    .container {
+        grid-template-columns: 1fr;
+        padding: 30px 5%;
+    }
+    
+    .panel-pedido {
+        position: static;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px 4%;
+    }
+    
+    .catalogo h2 {
+        font-size: 1.5rem;
+    }
+    
+    .grid {
+        gap: 20px;
+    }
+    
+    .card h4 {
+        font-size: 1rem;
+    }
+    
+    .panel-pedido {
+        padding: 20px;
+    }
+    
+    .total-area {
+        font-size: 1.2rem;
+    }
+    
+    #total-final {
+        font-size: 1.4rem;
+    }
+}
+/* ========== FORZAR ALINEACIÓN DE CHECKBOXES ========== */
+.personalizacion .checkbox-group label,
+.personalizacion label {
+    display: flex !important;
+    align-items: center !important;
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    gap: 12px !important;
+    white-space: normal !important;
+    word-break: keep-all !important;
+}
+
+.personalizacion .checkbox-group input[type="checkbox"],
+.personalizacion input[type="checkbox"] {
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    max-width: 18px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex-shrink: 0 !important;
+    order: 1 !important;
+}
+
+.personalizacion .checkbox-group span,
+.personalizacion label span {
+    order: 2 !important;
+}
+
+/* Si el texto está fuera de un span, forzamos que se mantenga en línea */
+.personalizacion label br {
+    display: none !important;
+}

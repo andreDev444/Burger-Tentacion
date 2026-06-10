@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PQRSD - Burger Tentación</title>
+
+    <link rel="icon" type="image/png" href="multimedia/BURGER.png">
+    <link rel="stylesheet" href="style_pqrsd.css">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar navbar-fondo">
+
+        <div class="logo">
+            <a href="index.html">
+                <img src="multimedia/BURGER.png" alt="Logo">
+            </a>
+        </div>
+
+        <nav>
+
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <span class="nav-bar"></span>
+
+                <li><a href="sedes.html">Sedes</a></li>
+                <span class="nav-bar"></span>
+
+                <li><a href="sobreNosotros.html">Sobre Nosotros</a></li>
+                <span class="nav-bar"></span>
+
+                <li><a href="pqrsd.html">Pqrsd</a></li>
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- HERO -->
+    <section class="pqrsd-hero">
+
+        <h1>Centro de Atención PQRSD</h1>
+
+        <p>
+            En Burger Tentación queremos escuchar tu experiencia.
+            Puedes enviarnos peticiones, quejas, reclamos,
+            sugerencias o denuncias.
+        </p>
+
+    </section>
+
+    <!-- CONTENIDO -->
+    <main class="pqrsd-container">
+
+        <!-- FORMULARIO -->
+        <section class="pqrsd-card">
+
+            <h2>Enviar Solicitud</h2>
+
+            <form id="formularioPQRSD">
+
+                <div class="grupo-input">
+
+                    <label>Nombre Completo</label>
+
+                    <input
+                        type="text"
+                        id="nombre"
+                        required
+                    >
+
+                </div>
+
+                <div class="grupo-input">
+
+                    <label>Correo Electrónico</label>
+
+                    <input
+                        type="email"
+                        id="correo"
+                        required
+                    >
+
+                </div>
+
+                <div class="grupo-input">
+
+                    <label>Teléfono</label>
+
+                    <input
+                        type="text"
+                        id="telefono"
+                    >
+
+                </div>
+
+                <div class="grupo-input">
+
+                    <label>Tipo</label>
+
+                    <select id="tipo" required>
+
+                        <option value="">
+                            Seleccione...
+                        </option>
+
+                        <option value="Peticion">
+                            Petición
+                        </option>
+
+                        <option value="Queja">
+                            Queja
+                        </option>
+
+                        <option value="Reclamo">
+                            Reclamo
+                        </option>
+
+                        <option value="Sugerencia">
+                            Sugerencia
+                        </option>
+
+                        <option value="Denuncia">
+                            Denuncia
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="grupo-input">
+
+                    <label>Asunto</label>
+
+                    <input
+                        type="text"
+                        id="asunto"
+                        required
+                    >
+
+                </div>
+
+                <div class="grupo-input">
+
+                    <label>Mensaje</label>
+
+                    <textarea
+                        id="mensaje"
+                        rows="6"
+                        required
+                    ></textarea>
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="btn-enviar"
+                >
+                    ENVIAR PQRSD
+                </button>
+
+            </form>
+
+        </section>
+
+        <!-- PANEL ADMIN -->
+        <section class="admin-panel">
+
+            <h2>Panel Administrador</h2>
+
+            <div class="tabla-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Tipo</th>
+                            <th>Asunto</th>
+                            <th>Estado</th>
+                            <th>Respuesta</th>
+                            <th>Fecha</th>
+                            <th>Acciones</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="tablaPQRSD">
+
+                        <tr>
+
+                            <td colspan="6">
+                                Cargando datos...
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script_pqrsd.js"></script>
+
+</body>
+
+</html>
